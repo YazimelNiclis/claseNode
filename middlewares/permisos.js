@@ -4,6 +4,7 @@ const verificarPerfil1 = (req, res, next) => {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil administrador",
     });
+    return;
   }
   next();
 };
@@ -14,6 +15,7 @@ const verificarPerfil2 = (req, res, next) => {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil vendedor",
     });
+    return;
   }
   next();
 };
@@ -24,6 +26,7 @@ const verificarPerfil3 = (req, res, next) => {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil cliente",
     });
+    return;
   }
   next();
 };
