@@ -3,6 +3,7 @@
 const express = require("express"); //importacion de libreria
 const bodyParser = require("body-parser"); //importacion de libreria
 const telefonoRoutes = require("./routes/telefono");
+const clienteRoutes = require("./routes/clienteRoutes");
 
 // Inicializar express
 const app = express();
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 // -------------DECLARACION DE ENDPOINTS -----------------------------
 
 app.use("/api", telefonoRoutes);
+app.use("/api", clienteRoutes);
 
 app.get("/api/*", (req, res) => {
   res.status(404).json({
