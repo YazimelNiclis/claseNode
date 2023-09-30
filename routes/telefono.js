@@ -24,11 +24,13 @@ const {
   verificarPerfil2,
   verificarPerfil3,
 } = require("../middlewares/permisos");
+const { verifyToken } = require("../middlewares/auth");
 
 //Utilizamos la funcion Router de express
 const router = express.Router();
 
-router.get("/agenda", loggerGet, verificarPerfil1, agendaAll);
+//primero se verifica la autenticacion(si esta logeado), y luego la autorizacion (si tiene los permisos)
+router.get("/agenda", verifyToken, verificarPerfil1, agendaAll);
 
 router.post(
   "/agenda",

@@ -1,7 +1,7 @@
 const agenda = require("../data/agenda");
 
 const agendaAll = (req, res) => {
-  res.json(agenda);
+  res.json({ agenda: agenda, usuario: req.user });
 };
 
 const agendaFilter = (req, res) => {

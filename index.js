@@ -4,6 +4,7 @@ const express = require("express"); //importacion de libreria
 const bodyParser = require("body-parser"); //importacion de libreria
 const telefonoRoutes = require("./routes/telefono");
 const clienteRoutes = require("./routes/clienteRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 // Inicializar express
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use("/api", telefonoRoutes);
 app.use("/api", clienteRoutes);
+app.use("/api", authRoutes);
 
 app.get("/api/*", (req, res) => {
   res.status(404).json({

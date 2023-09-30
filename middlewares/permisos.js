@@ -1,5 +1,6 @@
 const verificarPerfil1 = (req, res, next) => {
-  const user = req.body;
+  const user = req.user;
+  console.log(user);
   if (user.perfil != 1) {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil administrador",
@@ -10,7 +11,7 @@ const verificarPerfil1 = (req, res, next) => {
 };
 
 const verificarPerfil2 = (req, res, next) => {
-  const { perfil, nombre, id } = req.body;
+  const { perfil } = req.user;
   if (perfil != 2) {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil vendedor",
@@ -21,7 +22,7 @@ const verificarPerfil2 = (req, res, next) => {
 };
 
 const verificarPerfil3 = (req, res, next) => {
-  const { perfil, nombre, id } = req.body;
+  const { perfil } = req.user;
   if (perfil != 3) {
     res.status(401).json({
       error: "Acceso al recurso denegado, se requiere perfil cliente",
