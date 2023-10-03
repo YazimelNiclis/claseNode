@@ -5,12 +5,15 @@ const bodyParser = require("body-parser"); //importacion de libreria
 const telefonoRoutes = require("./routes/telefono");
 const clienteRoutes = require("./routes/clienteRoutes");
 const authRoutes = require("./routes/authRoutes");
+const morgan = require("morgan");
+const cors = require("cors");
 
 // Inicializar express
 const app = express();
 
 // ------------MIDDLEWARE-------------------------
-
+app.use(morgan("dev"));
+app.use(cors());
 app.use(bodyParser.json());
 
 // -------------DECLARACION DE ENDPOINTS -----------------------------

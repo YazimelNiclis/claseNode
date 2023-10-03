@@ -9,7 +9,7 @@ const { verificarPerfil1 } = require("../middlewares/permisos");
 
 const router = express.Router();
 
-router.get("/listaClientes", verifyToken, verificarPerfil1, listaClientes);
+router.get("/listaClientes", verifyToken, listaClientes);
 router.get("/listaClientesReducida/:id", listaClientesReducida);
 router.post("/insertarCliente", insertarCliente2);
 
